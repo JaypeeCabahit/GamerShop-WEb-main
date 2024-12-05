@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valorant Top-Up</title>
+    <title>Fortnite V-Bucks Top-Up</title>
+    <link rel="icon" href="Image/gamershopicontransparent.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,25 +19,25 @@
     <!-- Main Content -->
     <main>
         <section class="topup-section">
-            <h2>Valorant</h2>
+            <h2>Fortnite V-Bucks</h2>
 
             <!-- User ID Input -->
             <div class="user-input">
-                <label for="user-id">Enter Riot ID:</label>
-                <input type="text" id="user-id" placeholder="Enter your UID">
+                <label for="user-id">Enter Epic Games ID:</label>
+                <input type="text" id="user-id" placeholder="Enter your Epic Games ID">
             </div>
 
             <!-- Recharge Options -->
             <div class="recharge-options">
-                <h3>Select Item</h3>
+                <h3 id="selected-item-title">Select Item</h3>
                 <div class="items">
                     <!-- Item 1 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '1000 V-Bucks')">
                         <div class="item-content">
                             <div class="item-header">
-                                <img src="Image/VALORANT_Points.png" alt="Valorant Points Icon" class="item-icon">
-                                475 VP
+                                <img src="Image/Fortnite_VBucks.png" alt="Fortnite V-Bucks Icon" class="item-icon">
+                                1000 V-Bucks
                             </div>
                             <div class="item-body">
                                 <p class="item-price">From ₱199</p>
@@ -46,25 +47,25 @@
 
                     <!-- Item 2 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '2800 V-Bucks')">
                         <div class="item-content">
                             <div class="item-header">
-                                <img src="Image/VALORANT_Points.png" alt="Valorant Points Icon" class="item-icon">
-                                1000 VP
+                                <img src="Image/Fortnite_VBucks.png" alt="Fortnite V-Bucks Icon" class="item-icon">
+                                2800 V-Bucks
                             </div>
                             <div class="item-body">
-                                <p class="item-price">From ₱399</p>
+                                <p class="item-price">From ₱499</p>
                             </div>
                         </div>
                     </label>
 
                     <!-- Item 3 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '5000 V-Bucks')">
                         <div class="item-content">
                             <div class="item-header">
-                                <img src="Image/VALORANT_Points.png" alt="Valorant Points Icon" class="item-icon">
-                                2050 VP
+                                <img src="Image/Fortnite_VBucks.png" alt="Fortnite V-Bucks Icon" class="item-icon">
+                                5000 V-Bucks
                             </div>
                             <div class="item-body">
                                 <p class="item-price">From ₱799</p>
@@ -74,42 +75,14 @@
 
                     <!-- Item 4 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '13500 V-Bucks')">
                         <div class="item-content">
                             <div class="item-header">
-                                <img src="Image/VALORANT_Points.png" alt="Valorant Points Icon" class="item-icon">
-                                3650 VP
+                                <img src="Image/Fortnite_VBucks.png" alt="Fortnite V-Bucks Icon" class="item-icon">
+                                13500 V-Bucks
                             </div>
                             <div class="item-body">
-                                <p class="item-price">From ₱1,399</p>
-                            </div>
-                        </div>
-                    </label>
-
-                    <!-- Item 5 -->
-                    <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
-                        <div class="item-content">
-                            <div class="item-header">
-                                <img src="Image/VALORANT_Points.png" alt="Valorant Points Icon" class="item-icon">
-                                5350 VP
-                            </div>
-                            <div class="item-body">
-                                <p class="item-price">From ₱1,999</p>
-                            </div>
-                        </div>
-                    </label>
-                    
-                    <!-- Item 6 -->
-                    <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
-                        <div class="item-content">
-                            <div class="item-header">
-                                <img src="Image/VALORANT_Points.png" alt="Valorant Points Icon" class="item-icon">
-                                11000 VP
-                            </div>
-                            <div class="item-body">
-                                <p class="item-price">From ₱3,999</p>
+                                <p class="item-price">From ₱1,990</p>
                             </div>
                         </div>
                     </label>
@@ -118,11 +91,11 @@
 
             <!-- Payment Methods -->
             <div class="payment-method">
-                <h3>Select Payment</h3>
+                <h3 id="selected-payment-title">Select Payment</h3>
                 <div class="payment-options">
                     <!-- Payment Option 1 -->
                     <label class="payment-box">
-                        <input type="radio" name="payment" hidden>
+                        <input type="radio" name="payment" hidden onclick="togglePaymentSelection(this, 'GCash')">
                         <div class="payment-content">
                             <img class="payment-image" src="Image/Gcash.png" alt="GCash">
                             <div class="payment-title">GCash</div>
@@ -132,7 +105,7 @@
 
                     <!-- Payment Option 2 -->
                     <label class="payment-box">
-                        <input type="radio" name="payment" hidden>
+                        <input type="radio" name="payment" hidden onclick="togglePaymentSelection(this, 'PayPal')">
                         <div class="payment-content">
                             <img class="payment-image" src="Image/Paypal.png" alt="PayPal">
                             <div class="payment-title">PayPal</div>
@@ -142,7 +115,7 @@
 
                     <!-- Payment Option 3 -->
                     <label class="payment-box">
-                        <input type="radio" name="payment" hidden>
+                        <input type="radio" name="payment" hidden onclick="togglePaymentSelection(this, 'Credit/Debit Card')">
                         <div class="payment-content">
                             <img class="payment-image" src="Image/Visa.png" alt="Credit Card">
                             <div class="payment-title">Credit/Debit Card</div>
@@ -152,7 +125,7 @@
 
                     <!-- Payment Option 4 -->
                     <label class="payment-box">
-                        <input type="radio" name="payment" hidden>
+                        <input type="radio" name="payment" hidden onclick="togglePaymentSelection(this, 'Bank Transfer')">
                         <div class="payment-content">
                             <img class="payment-image" src="Image/BankTransfer.png" alt="Bank Transfer">
                             <div class="payment-title">Bank Transfer</div>
@@ -165,7 +138,10 @@
             <!-- Buy Now Section -->
             <div class="purchase">
                 <h3>Buy Now</h3>
-                <button class="buy-button">Buy Now</button>
+                <button class="buy-button" onclick="handlePurchase()">Buy Now</button>
+            </div>
+            <div id="success-message" style="display: none; color: green;">
+                Successfully purchased <span id="diamonds-amount"></span> V-Bucks! Thank you for trusting GamerShop.
             </div>
         </section>
     </main>
@@ -174,5 +150,78 @@
     <footer>
         <p>© GamerShop 2024. All rights reserved</p>
     </footer>
+
+    <script>
+        // Function to handle the purchase
+        function handlePurchase() {
+            const selectedItem = document.querySelector('input[name="recharge"]:checked');
+            const selectedPayment = document.querySelector('input[name="payment"]:checked');
+            const userId = document.getElementById('user-id').value || "Unknown User";
+
+            if (selectedItem && selectedPayment) {
+                const amount = selectedItem.nextElementSibling.querySelector('.item-price').textContent;
+                const vbucks = selectedItem.nextElementSibling.querySelector('.item-header').textContent;
+
+                const transaction = {
+                    id: `#${Math.floor(Math.random() * 1000000000)}`,
+                    date: new Date().toISOString().split('T')[0],
+                    game: "Fortnite",
+                    amount: amount,
+                    payment: selectedPayment.nextElementSibling.querySelector('.payment-title').textContent,
+                    diamonds: vbucks,
+                    status: "Completed",
+                    userId: userId,
+                    image: "Image/Fortnite_VBucks.png"
+                };
+
+                let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+                transactions.push(transaction);
+                localStorage.setItem('transactions', JSON.stringify(transactions));
+                alert(`Transaction successful!`);
+            } else {
+                alert('Please select a product and payment method.');
+            }
+        }
+
+        // Function to toggle recharge selection and handle deselect
+        let lastSelectedItem = null;
+
+        function toggleSelection(element, selectedText) {
+            const title = document.getElementById('selected-item-title');
+
+            if (lastSelectedItem === element) {
+                element.checked = false;
+                lastSelectedItem = null;
+                title.textContent = 'Select Item';
+            } else {
+                if (lastSelectedItem) {
+                    lastSelectedItem.checked = false;
+                }
+                lastSelectedItem = element;
+                element.checked = true;
+                title.textContent = `Select Item (Selected ${selectedText})`;
+            }
+        }
+
+        // Function to toggle payment selection and handle deselect
+        let lastSelectedPayment = null;
+
+        function togglePaymentSelection(element, selectedPaymentText) {
+            const paymentTitle = document.getElementById('selected-payment-title');
+
+            if (lastSelectedPayment === element) {
+                element.checked = false;
+                lastSelectedPayment = null;
+                paymentTitle.textContent = 'Select Payment';
+            } else {
+                if (lastSelectedPayment) {
+                    lastSelectedPayment.checked = false;
+                }
+                lastSelectedPayment = element;
+                element.checked = true;
+                paymentTitle.textContent = `Select Payment (Selected ${selectedPaymentText})`;
+            }
+        }
+    </script>
 </body>
 </html>

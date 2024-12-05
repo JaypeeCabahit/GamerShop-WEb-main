@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CODM Top-Up</title>
+    <title>Zenless Zone Zero Top-Up</title>
     <link rel="icon" href="Image/gamershopicontransparent.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -19,7 +19,7 @@
     <!-- Main Content -->
     <main>
         <section class="topup-section">
-            <h2>Call of Duty Mobile - Shells Voucher</h2>
+            <h2>Zenless Zone Zero</h2>
 
             <!-- User ID Input -->
             <div class="user-input">
@@ -31,15 +31,15 @@
 
             <!-- Recharge Options -->
             <div class="recharge-options">
-                <h3 id="selected-item-title">Select Voucher</h3>
+                <h3 id="selected-item-title">Select Item</h3>
                 <div class="items">
                     <!-- Item 1 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '80 Garena Shells')">
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '60 Monochrome')">
                         <div class="item-content">
                             <div class="item-header">
-                                <img src="Image/GarenaShells.png" alt="Garena Shells Icon" class="item-icon">
-                                80 Garena Shells
+                                <img src="Image/Monochrome.png" alt="Monochrome Icon" class="item-icon">
+                                60 Monochrome
                             </div>
                             <div class="item-body">
                                 <p class="item-price">From ₱55</p>
@@ -49,11 +49,11 @@
 
                     <!-- Item 2 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '300 Garena Shells')">
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '330 Monochrome')">
                         <div class="item-content">
                             <div class="item-header">
-                                <img src="Image/GarenaShells.png" alt="Garena Shells Icon" class="item-icon">
-                                300 Garena Shells
+                                <img src="Image/Monochrome.png" alt="Monochrome Icon" class="item-icon">
+                                330 Monochrome
                             </div>
                             <div class="item-body">
                                 <p class="item-price">From ₱280</p>
@@ -63,11 +63,11 @@
 
                     <!-- Item 3 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '1000 Garena Shells')">
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '1090 Monochrome')">
                         <div class="item-content">
                             <div class="item-header">
-                                <img src="Image/GarenaShells.png" alt="Garena Shells Icon" class="item-icon">
-                                1000 Garena Shells
+                                <img src="Image/Monochrome.png" alt="Monochrome Icon" class="item-icon">
+                                1090 Monochrome
                             </div>
                             <div class="item-body">
                                 <p class="item-price">From ₱830</p>
@@ -77,11 +77,11 @@
 
                     <!-- Item 4 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '2500 Garena Shells')">
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '2240 Monochrome')">
                         <div class="item-content">
                             <div class="item-header">
-                                <img src="Image/GarenaShells.png" alt="Garena Shells Icon" class="item-icon">
-                                2500 Garena Shells
+                                <img src="Image/Monochrome.png" alt="Monochrome Icon" class="item-icon">
+                                2240 Monochrome
                             </div>
                             <div class="item-body">
                                 <p class="item-price">From ₱1,670</p>
@@ -91,11 +91,11 @@
 
                     <!-- Item 5 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '5000 Garena Shells')">
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '3380 Monochrome')">
                         <div class="item-content">
                             <div class="item-header">
-                                <img src="Image/GarenaShells.png" alt="Garena Shells Icon" class="item-icon">
-                                5000 Garena Shells
+                                <img src="Image/Monochrome.png" alt="Monochrome Icon" class="item-icon">
+                                3380 Monochrome
                             </div>
                             <div class="item-body">
                                 <p class="item-price">From ₱2,800</p>
@@ -105,11 +105,11 @@
 
                     <!-- Item 6 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '10800 Garena Shells')">
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '8080 Monochrome')">
                         <div class="item-content">
                             <div class="item-header">
-                                <img src="Image/GarenaShells.png" alt="Garena Shells Icon" class="item-icon">
-                                10800 Garena Shells
+                                <img src="Image/Monochrome.png" alt="Monochrome Icon" class="item-icon">
+                                8080 Monochrome
                             </div>
                             <div class="item-body">
                                 <p class="item-price">From ₱5,500</p>
@@ -171,7 +171,7 @@
                 <button class="buy-button" onclick="handlePurchase()">Buy Now</button>
             </div>
             <div id="success-message" style="display: none; color: green;">
-                Successfully purchased <span id="diamonds-amount"></span> Garena Shells! Thank you for trusting GamerShop.
+                Successfully purchased <span id="diamonds-amount"></span> Monochrome! Thank you for trusting GamerShop.
             </div>
         </section>
     </main>
@@ -191,19 +191,19 @@
 
             if (selectedItem && selectedPayment) {
                 const amount = selectedItem.nextElementSibling.querySelector('.item-price').textContent;
-                const shells = selectedItem.nextElementSibling.querySelector('.item-header').textContent;
+                const monochrome = selectedItem.nextElementSibling.querySelector('.item-header').textContent;
 
                 const transaction = {
                     id: `#${Math.floor(Math.random() * 1000000000)}`,
                     date: new Date().toISOString().split('T')[0],
-                    game: "Call of Duty Mobile",
+                    game: "Zenless Zone Zero",
                     amount: amount,
                     payment: selectedPayment.nextElementSibling.querySelector('.payment-title').textContent,
-                    diamonds: shells,
+                    monochrome: monochrome,
                     status: "Completed",
                     userId: userId,
                     zoneId: zoneId,
-                    image: "Image/codm.jpg"
+                    image: "Image/ZenlessZoneZero.png"
                 };
 
                 let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
@@ -224,14 +224,14 @@
             if (lastSelectedItem === element) {
                 element.checked = false;
                 lastSelectedItem = null;
-                title.textContent = 'Select Voucher';
+                title.textContent = 'Select Item';
             } else {
                 if (lastSelectedItem) {
                     lastSelectedItem.checked = false;
                 }
                 lastSelectedItem = element;
                 element.checked = true;
-                title.textContent = `Select Voucher (Selected ${selectedText})`;
+                title.textContent = `Select Item (Selected ${selectedText})`;
             }
         }
 

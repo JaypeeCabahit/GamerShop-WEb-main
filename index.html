@@ -12,31 +12,39 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <h1><a href="index.html">GamerShop</a></h1>
+            <div class="title-and-menu">
+                <label for="menu-toggle" class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <h1>
+                    <a href="index.html">
+                        <i class="fas fa-gamepad" style="margin-right: 10px;"></i> GamerShop
+                    </a>
+                </h1>
+            </div>
             <p>The fastest & easiest way to buy game credits</p>
             <div class="search-bar">
-                <input type="text" placeholder="Search for games">
-                <button>🔍</button>
+                <input type="text" id="search-input" placeholder="Search for games" oninput="handleSearch()">
+                <button id="toggle-search" onclick="toggleSearchInput()">🔍</button>
+                <div class="search-dropdown" id="search-dropdown"></div>
             </div>
         </div>
     </header>
 
     <!-- Sidebar -->
-    <input type="checkbox" id="menu-toggle" style="display: none;">
-    <label for="menu-toggle" class="hamburger-menu">
-        <i class="fas fa-bars"></i>
-    </label>
-    
-    <div class="sidebar">
-        <ul class="menu-list">
-            <li><a href="#">Home</a></li>
-            <li><a href="#featured-games">Featured Games</a></li>
-            <li><a href="#popular-games">Popular Games</a></li>
-            <li><a href="transachistory.html">Transaction History</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-        <button class="signout-button">Sign Out</button>
-    </div>
+<input type="checkbox" id="menu-toggle" style="display: none;">
+
+<div class="sidebar">
+    <ul class="menu-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#featured-games">Featured Games</a></li>
+        <li><a href="#popular-games">Popular Games</a></li>
+        <li><a href="transachistory.html">Transaction History</a></li>
+        <li><a href="#aboutus">About Us</a></li>
+    </ul>
+    <button class="signout-button">Sign Out</button>
+</div>
+
 
     <!-- Main Content -->
     <main>
@@ -48,17 +56,17 @@
                 <div class="carousel-container">
                     <div class="carousel-item">
                         <a href="mlbb.html">
-                            <img src="Image/mlbb.png" alt="Game 1">
+                            <img src="Image/mlbb.png" alt="Mobile Legends">
                         </a>
                     </div>
                     <div class="carousel-item">
                         <a href="genshin.html">
-                            <img src="Image/genshinimpact.png" alt="Game 2">
+                            <img src="Image/genshinimpact.png" alt="Genshin Impact">
                         </a>
                     </div>
                     <div class="carousel-item">
                         <a href="codm.html">
-                            <img src="Image/codm.jpg" alt="Game 3">
+                            <img src="Image/codm.jpg" alt="Call of Duty Mobile">
                         </a>
                     </div>
                 </div>
@@ -82,41 +90,84 @@
         <section id="popular-games" class="popular-games">
             <h2>Popular Games</h2>
             <div class="games-grid">
-                <a href="mlbb.html" class="game-card">
-                    <img src="Image/mlbb.png" alt="mlbb">
-                </a>
-                <a href="genshin.html" class="game-card">
-                    <img src="Image/genshinimpact.png" alt="genshinimpact">
-                </a>
-                <a href="codm.html" class="game-card">
-                    <img src="Image/codm.jpg" alt="codm">
-                </a>
-                <a href="roblox.html" class="game-card">
-                    <img src="Image/roblox.jpg" alt="roblox">
-                </a>
-                <a href="valo.html" class="game-card">
-                    <img src="Image/valorant.jpg" alt="valo">
-                </a>
-                <a href="lol.html" class="game-card">
-                    <img src="Image/LeagueOfLegends.jpeg" alt="lol">
-                </a>
-                <a href="hok.html" class="game-card">
-                    <img src="Image/HOK.png" alt="hok">
-                </a>
-                <a href="fortnite.html" class="game-card">
-                    <img src="Image/fortnite.png" alt="Game 8">
-                </a>
-                <a href="topup.html" class="game-card">
-                    <img src="https://via.placeholder.com/512x512?text=Game+9" alt="Game 9">
-                </a>
-                <a href="topup.html" class="game-card">
-                    <img src="https://via.placeholder.com/512x512?text=Game+10" alt="Game 10">
-                </a>
+                <div class="game-card">
+                    <a href="mlbb.html">
+                        <img src="Image/mlbb.png" alt="Mobile Legends">
+                    </a>
+                    <div class="game-title-card">
+                        <p class="game-title">Mobile Legends</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <a href="genshin.html">
+                        <img src="Image/genshinimpact.png" alt="Genshin Impact">
+                    </a>
+                    <div class="game-title-card">
+                        <p class="game-title">Genshin Impact</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <a href="codm.html">
+                        <img src="Image/codm.jpg" alt="Call of Duty Mobile">
+                    </a>
+                    <div class="game-title-card">
+                        <p class="game-title">Call of Duty Mobile</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <a href="roblox.html">
+                        <img src="Image/roblox.jpg" alt="Roblox">
+                    </a>
+                    <div class="game-title-card">
+                        <p class="game-title">Roblox</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <a href="valo.html">
+                        <img src="Image/valorant.jpg" alt="Valorant">
+                    </a>
+                    <div class="game-title-card">
+                        <p class="game-title">Valorant</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <a href="lol.html">
+                        <img src="Image/LeagueOfLegends.jpeg" alt="League of Legends">
+                    </a>
+                    <div class="game-title-card">
+                        <p class="game-title">League of Legends</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <a href="hok.html">
+                        <img src="Image/HOK.png" alt="Honor of Kings">
+                    </a>
+                    <div class="game-title-card">
+                        <p class="game-title">Honor of Kings</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <a href="fortnite.html">
+                        <img src="Image/fortnite.png" alt="Fortnite">
+                    </a>
+                    <div class="game-title-card">
+                        <p class="game-title">Fortnite</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <a href="zenlesszonezero.html">
+                        <img src="Image/ZenlessZoneZero.png" alt="Zenless Zone Zero">
+                    </a>
+                    <div class="game-title-card">
+                        <p class="game-title">Zenless Zone Zero</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Why Top Up -->
-        <section class="why-top-up">
+        <section id="aboutus" class="why-top-up">
+            <h1 style="color:#5e43a1">GAMERSHOP PHILIPPINES</h1>
             <h2>Why Top Up on GamerShop?</h2>
             <p>Millions of gamers count on GamerShop every month for a seamless purchase experience when buying game credits or vouchers – No registration or log-in is required, and purchases are added to your game account instantly. Top-up Roblox, Mobile Legends, Genshin Impact and more now!</p>
             <h3>Convenient Payment Method</h3>
@@ -137,58 +188,27 @@
     <script>
         let slideIndex = 1;
         showSlides(slideIndex);
-
+    
         function plusSlides(n) {
             showSlides(slideIndex += n);
         }
-
+    
         function currentSlide(n) {
             showSlides(slideIndex = n);
         }
-
+    
         function showSlides(n) {
             let i;
             let slides = document.getElementsByClassName("carousel-item");
             let dots = document.getElementsByClassName("dot");
-
+    
             if (n > slides.length) { slideIndex = 1 }
             if (n < 1) { slideIndex = slides.length }
-
+    
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
-
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-        }
-    </script><script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("carousel-item");
-            let dots = document.getElementsByClassName("dot");
-
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
-
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-
+    
             for (i = 0; i < dots.length; i++) {
                 dots[i].className = dots[i].className.replace(" active", "");
             }
@@ -196,6 +216,69 @@
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
         }
-    </script>
+
+        function toggleSearchInput() {
+        const searchInput = document.getElementById('search-input');
+        
+        if (searchInput.classList.contains('hidden')) {
+            searchInput.classList.remove('hidden');
+            searchInput.style.width = '200px'; // Optional: Set the width when showing the input
+        } else {
+            searchInput.classList.add('hidden');
+            searchInput.style.width = '0'; // Optional: Shrink the width when hiding the input
+        }
+    }
+
+        // Search functionality
+        const gamesList = [
+        { name: 'Mobile Legends', link: 'mlbb.html', img: 'Image/mlbb.png' },
+        { name: 'Genshin Impact', link: 'genshin.html', img: 'Image/genshinimpact.png' },
+        { name: 'Call of Duty Mobile', link: 'codm.html', img: 'Image/codm.jpg' },
+        { name: 'Roblox', link: 'roblox.html', img: 'Image/roblox.jpg' },
+        { name: 'Valorant', link: 'valo.html', img: 'Image/valorant.jpg' },
+        { name: 'League of Legends', link: 'lol.html', img: 'Image/LeagueOfLegends.jpeg' },
+        { name: 'Honor of Kings', link: 'hok.html', img: 'Image/HOK.png' },
+        { name: 'Fortnite', link: 'fortnite.html', img: 'Image/fortnite.png' },
+        { name: 'Zenless Zone Zero', link: 'zenlesszonezero.html', img: 'Image/ZenlessZoneZero.png' }
+    ];
+
+    function handleSearch() {
+        const input = document.getElementById('search-input').value.toLowerCase();
+        const dropdown = document.getElementById('search-dropdown');
+        dropdown.innerHTML = ''; // Clear existing results
+
+        if (input.length > 0) {
+            const filteredGames = gamesList.filter(game => game.name.toLowerCase().includes(input));
+            if (filteredGames.length > 0) {
+                dropdown.style.display = 'block';
+                filteredGames.forEach(game => {
+                    const item = document.createElement('div');
+                    item.classList.add('search-dropdown-item');
+                    
+                    // Create and append image
+                    const img = document.createElement('img');
+                    img.src = game.img;
+                    img.classList.add('game-icon');
+                    item.appendChild(img);
+                    
+                    // Add game name text
+                    const text = document.createElement('span');
+                    text.textContent = game.name;
+                    item.appendChild(text);
+                    
+                    // Set onClick behavior to redirect
+                    item.onclick = () => {
+                        window.location.href = game.link;
+                    };
+                    dropdown.appendChild(item);
+                });
+            } else {
+                dropdown.style.display = 'none';
+            }
+        } else {
+            dropdown.style.display = 'none';
+        }
+    }
+</script>
 </body>
 </html>

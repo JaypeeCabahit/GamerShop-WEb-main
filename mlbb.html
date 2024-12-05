@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Top-Up</title>
+    <title>MLBB Top-Up</title>
+    <link rel="icon" href="Image/gamershopicontransparent.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -30,11 +31,11 @@
 
             <!-- Recharge Options -->
             <div class="recharge-options">
-                <h3>Select Item</h3>
+                <h3 id="selected-item-title">Select Item</h3>
                 <div class="items">
                     <!-- Item 1 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '💎 5 Diamonds')">
                         <div class="item-content">
                             <div class="item-header">💎 5 Diamonds</div>
                             <div class="item-body">
@@ -45,7 +46,7 @@
 
                     <!-- Item 2 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '💎 11 Diamonds')">
                         <div class="item-content">
                             <div class="item-header">💎 11 Diamonds</div>
                             <div class="item-body">
@@ -56,7 +57,7 @@
 
                     <!-- Item 3 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '💎 22 Diamonds')">
                         <div class="item-content">
                             <div class="item-header">💎 22 Diamonds</div>
                             <div class="item-body">
@@ -67,7 +68,7 @@
 
                     <!-- Item 4 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '💎 56 Diamonds')">
                         <div class="item-content">
                             <div class="item-header">💎 56 Diamonds</div>
                             <div class="item-body">
@@ -78,7 +79,7 @@
 
                     <!-- Item 5 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '💎 112 Diamonds')">
                         <div class="item-content">
                             <div class="item-header">💎 112 Diamonds</div>
                             <div class="item-body">
@@ -86,10 +87,10 @@
                             </div>
                         </div>
                     </label>
-                    
+
                     <!-- Item 6 -->
                     <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
+                        <input type="radio" name="recharge" hidden onclick="toggleSelection(this, '💎 223 Diamonds')">
                         <div class="item-content">
                             <div class="item-header">💎 223 Diamonds</div>
                             <div class="item-body">
@@ -97,52 +98,17 @@
                             </div>
                         </div>
                     </label>
-                    <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
-                        <div class="item-content">
-                            <div class="item-header">💎 570 Diamonds</div>
-                            <div class="item-body">
-                                <p class="item-price">From ₱475</p>
-                            </div>
-                        </div>
-                    </label>
-                    <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
-                        <div class="item-content">
-                            <div class="item-header">💎 1163 Diamonds</div>
-                            <div class="item-body">
-                                <p class="item-price">From ₱950</p>
-                            </div>
-                        </div>
-                    </label>
-                    <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
-                        <div class="item-content">
-                            <div class="item-header">💎 2398 Diamonds</div>
-                            <div class="item-body">
-                                <p class="item-price">From ₱1,900</p>
-                            </div>
-                        </div>
-                    </label>
-                    <label class="item-box">
-                        <input type="radio" name="recharge" hidden>
-                        <div class="item-content">
-                            <div class="item-header">💎 6042 Diamonds</div>
-                            <div class="item-body">
-                                <p class="item-price">From ₱4,750</p>
-                            </div>
-                        </div>
-                    </label>
+                    <!-- Add more items as needed -->
                 </div>
             </div>
 
-            <!-- Payment Methods -->
+              <!-- Payment Methods -->
             <div class="payment-method">
-                <h3>Select Payment</h3>
+                <h3 id="selected-payment-title">Select Payment</h3>
                 <div class="payment-options">
                     <!-- Payment Option 1 -->
                     <label class="payment-box">
-                        <input type="radio" name="payment" hidden>
+                        <input type="checkbox" name="payment" hidden onclick="togglePaymentSelection(this, 'GCash')">
                         <div class="payment-content">
                             <img class="payment-image" src="Image/Gcash.png" alt="GCash">
                             <div class="payment-title">GCash</div>
@@ -152,7 +118,7 @@
 
                     <!-- Payment Option 2 -->
                     <label class="payment-box">
-                        <input type="radio" name="payment" hidden>
+                        <input type="checkbox" name="payment" hidden onclick="togglePaymentSelection(this, 'PayPal')">
                         <div class="payment-content">
                             <img class="payment-image" src="Image/Paypal.png" alt="PayPal">
                             <div class="payment-title">PayPal</div>
@@ -162,21 +128,11 @@
 
                     <!-- Payment Option 3 -->
                     <label class="payment-box">
-                        <input type="radio" name="payment" hidden>
+                        <input type="checkbox" name="payment" hidden onclick="togglePaymentSelection(this, 'Credit/Debit Card')">
                         <div class="payment-content">
                             <img class="payment-image" src="Image/Visa.png" alt="Credit Card">
                             <div class="payment-title">Credit/Debit Card</div>
                             <div class="payment-description">Pay with a credit or debit card</div>
-                        </div>
-                    </label>
-
-                    <!-- Payment Option 4 -->
-                    <label class="payment-box">
-                        <input type="radio" name="payment" hidden>
-                        <div class="payment-content">
-                            <img class="payment-image" src="Image/BankTransfer.png" alt="Bank Transfer">
-                            <div class="payment-title">Bank Transfer</div>
-                            <div class="payment-description">Direct transfer</div>
                         </div>
                     </label>
                 </div>
@@ -199,22 +155,80 @@
     </footer>
 
     <script>
+        // Function to handle the purchase
         function handlePurchase() {
-            // Get the selected recharge option (Diamonds)
-            const selectedItem = document.querySelector('input[name="recharge"]:checked');
+    const selectedItem = document.querySelector('input[name="recharge"]:checked');
+    const selectedPayment = document.querySelector('input[name="payment"]:checked');
+    const userId = document.getElementById('user-id').value || "Unknown User";
+    const zoneId = document.getElementById('zone-id').value || "Unknown Server";
 
-            // If an item is selected
-            if (selectedItem) {
-                const diamonds = selectedItem.value; // Get the diamonds from the selected item
-                
-                // Show the success message
-                const successMessage = document.getElementById('success-message');
-                const diamondsAmount = document.getElementById('diamonds-amount');
-                diamondsAmount.textContent = diamonds; // Set the amount of diamonds
-                successMessage.style.display = 'block'; // Show the success message
+    if (selectedItem && selectedPayment) {
+        const amount = selectedItem.nextElementSibling.querySelector('.item-price').textContent;
+        const diamonds = selectedItem.nextElementSibling.querySelector('.item-header').textContent;
+
+        const transaction = {
+            id: `#${Math.floor(Math.random() * 1000000000)}`,
+            date: new Date().toISOString().split('T')[0],
+            game: "Mobile Legends",
+            amount: amount,
+            payment: selectedPayment.nextElementSibling.querySelector('.payment-title').textContent,
+            diamonds: diamonds,
+            status: "Completed",
+            userId: userId,
+            zoneId: zoneId,
+            image: "Image/mlbb.png"
+        };
+
+        let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+        transactions.push(transaction);
+        localStorage.setItem('transactions', JSON.stringify(transactions));
+        alert(`Transaction successful!`);
             } else {
-                // If no item is selected, alert the user to select a product
-                alert('Please select a product before proceeding with the purchase.');
+                alert('Please select a product and payment method.');
+            }
+        }
+
+        // Function to toggle recharge selection and handle deselect
+        let lastSelectedItem = null;
+
+        function toggleSelection(element, selectedText) {
+            const title = document.getElementById('selected-item-title');
+
+            if (lastSelectedItem === element) {
+                // Deselect the item
+                element.checked = false;
+                lastSelectedItem = null;
+                title.textContent = 'Select Item';
+            } else {
+                // Deselect the last selected item and select the new one
+                if (lastSelectedItem) {
+                    lastSelectedItem.checked = false;
+                }
+                lastSelectedItem = element;
+                element.checked = true;
+                title.textContent = `Select Item (Selected ${selectedText})`;
+            }
+        }
+
+        // Function to toggle payment selection and handle deselect
+        let lastSelectedPayment = null;
+
+        function togglePaymentSelection(element, selectedPaymentText) {
+            const paymentTitle = document.getElementById('selected-payment-title');
+
+            if (lastSelectedPayment === element) {
+                // Deselect the payment
+                element.checked = false;
+                lastSelectedPayment = null;
+                paymentTitle.textContent = 'Select Payment';
+            } else {
+                // Deselect the last selected payment and select the new one
+                if (lastSelectedPayment) {
+                    lastSelectedPayment.checked = false;
+                }
+                lastSelectedPayment = element;
+                element.checked = true;
+                paymentTitle.textContent = `Select Payment (Selected ${selectedPaymentText})`;
             }
         }
     </script>
