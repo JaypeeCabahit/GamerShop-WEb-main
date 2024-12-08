@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamerShop Administrator Login</title>
+    <link rel="icon" href="Image/gamershopicontransparent.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Shared styling for all pages */
         html, body {
             height: 100%;
             margin: 0;
@@ -30,53 +33,59 @@
         }
 
         .login-container {
-            background-color: #fff;
-            border-radius: 8px;
+            background: white;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 300px;
-        }
-
-        .login-container h1 {
             text-align: center;
-            color: #5e43a1;
-            margin-bottom: 20px;
-        }
-
-        .login-container form {
-            display: flex;
-            flex-direction: column;
         }
 
         .login-container input {
-            margin-bottom: 15px;
+            width: 100%;
             padding: 10px;
+            margin: 10px 0;
             border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
+            border-radius: 5px;
+            box-sizing: border-box;
         }
 
-        .login-container button {
-            background-color: #5e43a1;
-            color: #fff;
+        .password-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-wrapper input {
+            padding-right: 40px; /* Extra padding for the eye icon */
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 18px;
+            color: #555;
+        }
+
+        button {
+            width: 100%;
             padding: 10px;
-            border: none;
-            border-radius: 4px;
+            margin-top: 10px;
+            background-color: #5e43a1;
+            color: white;
             font-size: 16px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
 
-        .login-container button:hover {
-            background-color: #4a347e;
-        }
-
         .error-message {
-            color: red;
-            font-size: 14px;
-            text-align: center;
             display: none;
+            color: red;
+            margin-bottom: 10px;
         }
-
     </style>
 </head>
 <body>
@@ -93,7 +102,10 @@
             <div class="error-message" id="error-message">Invalid username or password.</div>
             <form id="login-form">
                 <input type="text" id="username" placeholder="Username" required>
-                <input type="password" id="password" placeholder="Password" required>
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="fas fa-eye toggle-password" id="toggle-password"></i>
+                </div>
                 <button type="submit">Login</button>
             </form>
         </div>
@@ -109,12 +121,28 @@
 
         const loginForm = document.getElementById("login-form");
         const errorMessage = document.getElementById("error-message");
+        const passwordInput = document.getElementById("password");
+        const togglePassword = document.getElementById("toggle-password");
 
+        // Password reveal toggle
+        togglePassword.addEventListener("click", () => {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                togglePassword.classList.remove("fa-eye");
+                togglePassword.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                togglePassword.classList.remove("fa-eye-slash");
+                togglePassword.classList.add("fa-eye");
+            }
+        });
+
+        // Login form submission
         loginForm.addEventListener("submit", (event) => {
             event.preventDefault();
 
             const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
+            const password = passwordInput.value;
 
             if (username === defaultUsername && password === defaultPassword) {
                 localStorage.setItem("isLoggedIn", "true");
@@ -125,6 +153,7 @@
             }
         });
 
+        // Redirect if already logged in
         window.addEventListener("load", () => {
             if (localStorage.getItem("isLoggedIn") === "true") {
                 window.location.href = "index.html";

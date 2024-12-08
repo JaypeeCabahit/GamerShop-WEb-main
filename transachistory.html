@@ -45,13 +45,12 @@
         <p>&copy; GamerShop 2024. All rights reserved</p>
     </footer>
 
-    <!-- Script for Dynamic Transactions -->
     <script>
         function populateTransactions() {
             const container = document.getElementById('transactions-container');
-            const transactions = JSON.parse(localStorage.getItem('transactions')) || []; // Retrieve transactions from localStorage
+            const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
     
-            container.innerHTML = ''; // Clear loading message
+            container.innerHTML = '';
     
             if (transactions.length === 0) {
                 container.innerHTML = '<p>No transactions found.</p>'; // If no transactions exist
@@ -81,7 +80,7 @@
                         </div>
                     </div>
                 `;
-                container.innerHTML += transactionCard; // Append transaction card to the container
+                container.innerHTML += transactionCard;
             });
         }
     
