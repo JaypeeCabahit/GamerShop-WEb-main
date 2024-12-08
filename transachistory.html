@@ -32,10 +32,10 @@
     <!-- Main Content -->
     <main>
         <section class="transaction-history">
-            <h2>Your Transaction History</h2>
+            <h2 style="text-align: center;">Your Transaction History</h2>
 
             <div class="transactions-container" id="transactions-container">
-                <p>Loading your transactions...</p>
+                <p style="text-align: center;">Loading your transactions...</p>
             </div>
         </section>
     </main>
@@ -53,7 +53,7 @@
             container.innerHTML = '';
     
             if (transactions.length === 0) {
-                container.innerHTML = '<p>No transactions found.</p>'; // If no transactions exist
+                container.innerHTML = '<p style="text-align: center;">No transactions found.</p>'; // If no transactions exist
                 return;
             }
     
