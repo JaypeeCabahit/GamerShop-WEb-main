@@ -31,10 +31,13 @@
         </div>
     </header>
 
-    <!-- Sidebar -->
+    <!-- Sidebar Menu -->
 <input type="checkbox" id="menu-toggle" style="display: none;">
 
 <div class="sidebar">
+    <button class="close-sidebar" onclick="closeSidebar()">
+        <i class="fas fa-times"></i>
+    </button>
     <ul class="menu-list">
         <li><a href="#">Home</a></li>
         <li><a href="#featured-games">Featured Games</a></li>
@@ -42,7 +45,7 @@
         <li><a href="transachistory.html">Transaction History</a></li>
         <li><a href="#aboutus">About Us</a></li>
     </ul>
-    <button class="signout-button">Sign Out</button>
+    <button class="signout-button" id="auth-button">Sign Out</button>
 </div>
 
 
@@ -52,7 +55,6 @@
         <section id="featured-games" class="featured-games">
             <h2>Featured Games</h2>
             <div class="carousel">
-                <!-- Carousel container -->
                 <div class="carousel-container">
                     <div class="carousel-item">
                         <a href="mlbb.html">
@@ -187,13 +189,15 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; GamerShop 2024. All rights reserved</p>
     </footer>
 
-    <!-- Script for Carousel Functionality -->
     <script>
+         function closeSidebar() {
+            document.getElementById('menu-toggle').checked = false;
+        }
+
         let slideIndex = 1;
         showSlides(slideIndex);
     
@@ -230,14 +234,13 @@
         
         if (searchInput.classList.contains('hidden')) {
             searchInput.classList.remove('hidden');
-            searchInput.style.width = '200px'; // Optional: Set the width when showing the input
+            searchInput.style.width = '200px';
         } else {
             searchInput.classList.add('hidden');
-            searchInput.style.width = '0'; // Optional: Shrink the width when hiding the input
+            searchInput.style.width = '0';
         }
     }
 
-        // Search functionality
         const gamesList = [
         { name: 'Mobile Legends', link: 'mlbb.html', img: 'Image/mlbb.png' },
         { name: 'Genshin Impact', link: 'genshin.html', img: 'Image/genshinimpact.png' },
@@ -249,6 +252,26 @@
         { name: 'Fortnite', link: 'fortnite.html', img: 'Image/fortnite.png' },
         { name: 'Zenless Zone Zero', link: 'zenlesszonezero.html', img: 'Image/ZenlessZoneZero.png' }
     ];
+
+    const authButton = document.getElementById('auth-button');
+
+window.addEventListener('load', () => {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        authButton.textContent = 'Sign Out';
+    } else {
+        authButton.textContent = 'Sign In';
+    }
+});
+
+authButton.addEventListener('click', () => {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        localStorage.removeItem('isLoggedIn');
+        alert('You have been signed out.');
+        authButton.textContent = 'Sign In';
+    } else {
+        window.location.href = 'login.html';
+    }
+});
 
     function handleSearch() {
         const input = document.getElementById('search-input').value.toLowerCase();
@@ -263,18 +286,15 @@
                     const item = document.createElement('div');
                     item.classList.add('search-dropdown-item');
                     
-                    // Create and append image
                     const img = document.createElement('img');
                     img.src = game.img;
                     img.classList.add('game-icon');
                     item.appendChild(img);
                     
-                    // Add game name text
                     const text = document.createElement('span');
                     text.textContent = game.name;
                     item.appendChild(text);
                     
-                    // Set onClick behavior to redirect
                     item.onclick = () => {
                         window.location.href = game.link;
                     };
