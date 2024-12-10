@@ -256,6 +256,8 @@ main {
     position: absolute;
     top: 50%;
     width: 100%;
+    left: 0; /* Ensure it stays within the parent container */
+    right: 0; /* Ensure it stays within the parent container */
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
@@ -266,21 +268,26 @@ main {
 .carousel-navigation .next {
     font-size: 2rem;
     color: #ffffff;
-    background: none; /* Remove background */
+    background: rgba(0, 0, 0, 0.5); /* Background with visibility */
     border: none;
-    padding: 0;
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    display: flex; /* Center the icon */
+    align-items: center; /* Vertically center the icon */
+    justify-content: center; /* Horizontally center the icon */
     cursor: pointer;
-    pointer-events: all; /* Allow clicking on arrows */
+    pointer-events: all; /* Enable clicking on arrows */
     user-select: none;
-    transition: color 0.3s;
+    border-radius: 10%; /* Makes the background circular */
+    transition: color 0.3s, background 0.3s;
 }
 
 .carousel-navigation .prev {
-    left: 20px; /* Adjust this value to move left arrow horizontally */
+    margin-left: 10px; /* Add some margin to keep it away from the edge */
 }
 
 .carousel-navigation .next {
-    right: 20px; /* Adjust this value to move right arrow horizontally */
+    margin-right: 10px; /* Add some margin to keep it away from the edge */
 }
 
 .carousel-navigation .prev:hover,
@@ -345,10 +352,6 @@ main {
 .game-card:hover {
     transform: translateY(-5px);
     background-color: #5e43a1; /* Change card color to purple when hover */
-}
-
-.game-card img:hover {
-    transform: scale(1.05); /* Slight zoom on hover for visual interest */
 }
 
 .game-title-card {
