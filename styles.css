@@ -240,7 +240,7 @@ main {
 
 .carousel-item img {
     width: 100%; /* Make sure it fills the container width */
-    height: 500px; /* Custom height */
+    height: auto; /* Maintain aspect ratio */
     object-fit: cover; /* Crop the image to fit the height without distortion */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
